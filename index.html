@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Arcana</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Outer Glass Wrapper for Clean Rounded Window Edges -->
+  <div class="widget-window">
+
+    <!-- Starfield Background -->
+    <div class="star-field">
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+    </div>
+
+    <!-- Header Drag Bar -->
+    <header class="drag-region">
+      <div class="header-text">
+        <h1 class="app-title">DAILY ARCANA</h1>
+        <span class="app-subtitle">✦ THE FOOL'S JOURNEY ✦</span>
+      </div>
+      <div class="window-controls">
+        <button id="minBtn" class="control-btn" title="Minimize">─</button>
+        <button id="closeBtn" class="control-btn close-btn" title="Close">✕</button>
+      </div>
+    </header>
+
+    <!-- Main Widget Stage -->
+    <main class="widget-container">
+      <!-- 3D Card Stage -->
+      <div class="card-stage" id="cardStage">
+        <div class="tarot-card" id="tarotCard">
+          <div class="card-face card-back"></div>
+          <div class="card-face card-front" id="cardFront"></div>
+        </div>
+      </div>
+
+      <!-- Dashed Quote / Interactive CTA Box -->
+      <div class="card-info-box" id="infoBox">
+        <button class="draw-btn" id="drawBtn">
+          <span class="btn-title">DRAW DAILY CARD</span>
+          <span class="btn-subtitle">FOCUS YOUR INTENTION ON THE DAY AHEAD...</span>
+        </button>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
