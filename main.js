@@ -1,29 +1,20 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 
 function createWindow() {
-  const AutoLaunch = require('auto-launch');
 
-const dailyArcanaAutoLauncher = new AutoLaunch({
-  name: 'Daily Arcana',
-  path: app.getPath('exe'),
+const win = new BrowserWindow({
+  // ... your existing width & height settings ...
+  frame: false,
+  transparent: true,
+  backgroundColor: '#00000000', // Forces native OS window canvas to 100% transparent
+  hasShadow: false,             // Kills native Windows square shadow box
+  thickFrame: false,
+  resizable: false,
+  webPreferences: {
+    nodeIntegration: true,
+    contextIsolation: false
+  }
 });
-
-dailyArcanaAutoLauncher.isEnabled().then((isEnabled) => {
-  if (!isEnabled) dailyArcanaAutoLauncher.enable();
-});
-  const win = new BrowserWindow({
-    width: 340,
-    height: 580,
-    frame: false,
-    transparent: true,
-    hasShadow: false,
-    resizable: false,
-    alwaysOnTop: true,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false
-    }
-  });
 
   win.loadFile('index.html');
 
