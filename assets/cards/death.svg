@@ -2,13 +2,23 @@
 <!-- Generator: Adobe Illustrator 24.1.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 201.6 345.6" style="enable-background:new 0 0 201.6 345.6;" xml:space="preserve">
-<g id="Layer_1">
+<g id="Layer_1" >
 </g>
-<g id="Layer_2">
+<g id="Layer_2" <g id="Layer_2" >>
 </g>
 <g id="Layer_3">
 </g>
 <g id="Layer_5">
+
+  /* Gently drops top Roman numeral away from top dotted line */
+  g id="Layer_5" > g > g:first-child + g { transform: translateY(6px); !important;  !important;  }
+  /* Gently lifts bottom card title away from bottom dotted line */
+  g id="Layer_5" > g > g:last-child { transform: translateY(-12px); }
+</style>
+
+   { transform: translateY(8px) scale(1.15); }
+  g > g > g:nth-child(3) { transform: translateY(-12px) scale(1.15); }
+</style>
 	<g>
 		<g>
 			<path d="M0,0v342h198.7V0H0z M198,341.1H0.8V0.9H198V341.1z"/>

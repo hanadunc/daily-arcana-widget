@@ -10,7 +10,10 @@ html, body {
   background-color: rgba(0, 0, 0, 0) !important;
   margin: 0;
   padding: 0;
+  width: 100vw !important;
+  height: 100vh !important;
   overflow: hidden !important;
+  box-shadow: none !important;
   user-select: none;
   font-family: 'Cinzel', 'Georgia', serif;
   display: flex;
@@ -18,23 +21,27 @@ html, body {
   justify-content: center;
 }
 
-/* GLASS WINDOW CONTAINER - EXACT MATCH TO LUNAR CYCLE */
+/* GLASS WINDOW CONTAINER */
 .widget-window {
-  width: 340px;
-  height: 580px;
-  background: rgba(22, 18, 28, 0.78) !important;
+  width: 100%;
+  height: 100%;
+  /* Increased opacity from 0.45 to 0.68 to match the Moon widget density */
+  background: rgba(22, 18, 28, 0.68) !important;
   border: 1px solid rgba(228, 203, 162, 0.28) !important;
   border-radius: 24px !important;
-  overflow: hidden !important; /* Clips background to rounded corners */
+  overflow: hidden !important;
   color: #f4eae1;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  box-shadow: inset 0 0 25px rgba(228, 203, 162, 0.04), 0 16px 36px rgba(0, 0, 0, 0.5) !important;
+  box-sizing: border-box !important;
+  box-shadow: inset 0 0 25px rgba(228, 203, 162, 0.04) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
 }
 
-/* HEADER DRAG BAR */
+/* HEADER DRAG BAR - COMPLETELY TRANSPARENT */
 .drag-region {
   -webkit-app-region: drag;
   width: 100%;
@@ -43,97 +50,9 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid rgba(228, 203, 162, 0.12) !important;
-  background: rgba(14, 10, 18, 0.2) !important;
-  z-index: 2;
-  padding: 0 14px;
-}
-
-/* QUOTE / CTA BOX */
-.card-info-box {
-  text-align: center;
-  width: 100%;
-  min-height: 96px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 14px;
-  border: 1px dashed rgba(228, 203, 162, 0.28) !important;
-  border-radius: 14px;
-  background: rgba(14, 10, 18, 0.35) !important;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-/* 2. MATCH WARM PARCHMENT GOLD IN SVG FILTER */
-.card-front svg {
-  width: 100%;
-  height: 100%;
-  /* Tuned filter to produce exact warm parchment-gold tone (#e4cb9d / #eed8b1) matching the moon */
-  filter: invert(85%) sepia(28%) saturate(380%) hue-rotate(352deg) brightness(92%) drop-shadow(0 0 4px rgba(228, 203, 162, 0.3)) !important;
-}
-
-/* PRIMARY TITLES - WARM ALABASTER MATCHED TO LUNAR CYCLE */
-.app-title,
-.btn-title,
-.card-title-text {
-  color: #f4eae1 !important;
-  font-family: 'Cinzel', serif;
-  letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(228, 203, 162, 0.2) !important;
-}
-
-/* SECONDARY SUBTITLES & LABELS - MUTED CHAMPAGNE GOLD */
-.app-subtitle,
-.card-keywords-text {
-  color: #bda27e !important;
-  letter-spacing: 2.5px;
-  opacity: 0.82;
-}
-
-/* Starfield Overlay */
-.star-field {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.star {
-  position: absolute;
-  background: #d8c397;
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  opacity: 0;
-  animation: starTwinkle 4s linear infinite;
-  filter: drop-shadow(0 0 4px rgba(216, 195, 151, 0.4));
-}
-
-.star:nth-child(1) { top: 12%; left: 8%;  width: 11px; height: 11px; animation-delay: 0s; }
-.star:nth-child(2) { top: 22%; right: 10%; width: 14px; height: 14px; animation-delay: 1.2s; }
-.star:nth-child(3) { top: 60%; left: 6%;  width: 10px; height: 10px; animation-delay: 2.1s; }
-.star:nth-child(4) { top: 78%; right: 8%;  width: 12px; height: 12px; animation-delay: 0.7s; }
-
-@keyframes starTwinkle {
-  0%   { transform: scale(0.3) rotate(0deg); opacity: 0; }
-  50%  { transform: scale(1.1) rotate(180deg); opacity: 0.65; }
-  100% { transform: scale(0.3) rotate(360deg); opacity: 0; }
-}
-
-/* Header Drag Bar */
-.drag-region {
-  -webkit-app-region: drag;
-  width: 100%;
-  height: 48px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid rgba(216, 195, 151, 0.12);
-  background: rgba(10, 8, 16, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: transparent !important;
+  background-color: transparent !important;
   z-index: 2;
   padding: 0 14px;
 }
@@ -186,19 +105,28 @@ html, body {
   color: #ff8b8b;
 }
 
-/* Main Layout */
+/* MAIN LAYOUT CONTAINER - NO EXTRA BACKGROUND (PREVENTS DOUBLE-STACKING) */
 .widget-container {
+  border-radius: 0 0 24px 24px !important;
+  overflow: hidden !important;
+  background: transparent !important; /* CRITICAL: Set to transparent so it doesn't darken .widget-window */
+  background-color: transparent !important;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: calc(100% - 48px);
+  height: 100%;
+  box-sizing: border-box;
   padding: 10px 14px 14px;
   z-index: 2;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* 3D Card Stage with Soft Gold Aura */
+/* 3D CARD STAGE */
 .card-stage {
   perspective: 1000px;
   width: 230px;
@@ -208,6 +136,7 @@ html, body {
   justify-content: center;
   margin-top: 2px;
   position: relative;
+  background: transparent !important;
 }
 
 .tarot-card {
@@ -217,20 +146,15 @@ html, body {
   transform-style: preserve-3d;
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
-  filter: drop-shadow(0 0 12px rgba(216, 195, 151, 0.25));
-  animation: cardAuraPulse 4s ease-in-out infinite alternate;
-}
-
-@keyframes cardAuraPulse {
-  0%   { filter: drop-shadow(0 0 10px rgba(216, 195, 151, 0.2)); }
-  100% { filter: drop-shadow(0 0 18px rgba(216, 195, 151, 0.4)); }
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.45)) !important;
+  background: transparent !important;
 }
 
 .tarot-card.is-flipped {
   transform: rotateY(180deg);
 }
 
-/* Card Faces */
+/* CARD FACES */
 .card-face {
   position: absolute;
   top: 0;
@@ -244,7 +168,7 @@ html, body {
   transition: opacity 0.2s linear 0.3s, visibility 0.2s linear 0.3s;
 }
 
-/* Vector Card Back */
+/* VECTOR CARD BACK */
 .card-back {
   opacity: 1;
   visibility: visible;
@@ -259,12 +183,12 @@ html, body {
   visibility: hidden;
 }
 
-/* Card Front - Soft Muted Champagne Vector Inversion */
+/* SOLID PHYSICAL CARD FRONT - MATCHED TO CARD BACK BASE */
 .card-front {
   opacity: 0;
   visibility: hidden;
   transform: rotateY(180deg);
-  background-color: #120e1a;
+  background-color: #120e1a !important; /* Matches .card-back exactly */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -276,14 +200,17 @@ html, body {
   visibility: visible;
 }
 
+/* REFINED FILTER TO MATCH CARD BACK'S GOLD (#d8c397) */
 .card-front svg {
-  width: 100%;
-  height: 100%;
-  /* Calibrated for a soft vintage champagne gold tone (#d8c397) without harsh yellow saturation */
-  filter: invert(80%) sepia(20%) saturate(220%) hue-rotate(350deg) brightness(98%) drop-shadow(0 0 3px rgba(216, 195, 151, 0.3));
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  /* Recalibrated filter: removes brown shift, yields clean gold lines on #120e1a */
+  filter: invert(85%) sepia(28%) saturate(380%) hue-rotate(352deg) brightness(92%) drop-shadow(0 0 3px rgba(216, 195, 151, 0.25)) !important;
 }
 
-/* Quote / CTA Box */
+/* QUOTE / DESCRIPTION BOX */
 .card-info-box {
   text-align: center;
   width: 100%;
@@ -291,17 +218,17 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 14px;
-  border: 1px dashed rgba(216, 195, 151, 0.32);
+  padding: 10px 8px !important;
+  border: 1px dashed rgba(228, 203, 162, 0.28) !important;
   border-radius: 14px;
-  background: rgba(10, 8, 16, 0.22);
+  background: rgba(14, 10, 18, 0.25) !important; /* Muted box fill to match header transparency */
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .card-info-box:hover {
-  background: rgba(216, 195, 151, 0.06);
-  border-color: rgba(242, 230, 216, 0.5);
+  background: rgba(22, 16, 28, 0.35) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
   box-shadow: 0 0 12px rgba(216, 195, 151, 0.12);
 }
 
@@ -326,12 +253,19 @@ html, body {
   text-shadow: 0 0 8px rgba(216, 195, 151, 0.3);
 }
 
-.btn-subtitle {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 0.7rem;
-  font-style: italic;
-  color: #d8c397;
-  opacity: 0.85;
+.btn-subtitle,
+.card-quote-text {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #F4EAE1 !important;
+  opacity: 0.95 !important;
+  line-height: 1.4 !important;
+  margin-top: 8px !important;
+  padding: 0 12px !important;
+  text-align: center !important;
 }
 
 .card-details-text {
@@ -344,35 +278,53 @@ html, body {
   font-family: 'Cinzel', serif;
   font-size: 0.88rem;
   font-weight: 700;
-  color: #f3e5c8;
+  color: #F4EAE1 !important;
   letter-spacing: 1.2px;
+  text-shadow: 0 0 10px rgba(228, 203, 162, 0.2) !important;
 }
 
-/* SINGLE-LINE CARD KEYWORDS FIX */
 .card-keywords-text {
   font-family: 'Cinzel', serif !important;
-  font-size: 0.58rem !important;        /* Tighter font size to prevent overflow */
-  letter-spacing: 1px !important;       /* Reduced tracking from 2px/2.5px to 1px */
-  color: #bda27e !important;
-  white-space: nowrap !important;       /* Prevents text from wrapping to a second line */
+  font-size: 0.58rem !important;
+  letter-spacing: 1px !important;
+  color: #E3C896 !important;
+  white-space: nowrap !important;
   overflow: hidden !important;
-  text-overflow: ellipsis !important;  /* Safety fallback for ultra-long phrases */
+  text-overflow: ellipsis !important;
   display: block !important;
   width: 100% !important;
   text-align: center !important;
   margin: 2px 0 !important;
 }
 
-/* OPTIONAL: MAXIMIZE INNER CONTAINER HORIZONTAL SPACE */
-.card-info-box {
-  padding: 10px 8px !important;         /* Reduces side padding so keywords have maximum width */
+/* STARFIELD OVERLAY */
+.star-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
 }
 
-/* ITALIC QUOTES & INSTRUCTIONS - SOFT WARM PARCHMENT */
-.btn-subtitle,
-.card-quote-text {
-  color: #d1c2b0 !important;
-  font-family: 'Quicksand', sans-serif;
-  font-style: italic;
-  opacity: 0.78;
+.star {
+  position: absolute;
+  background: #d8c397;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  opacity: 0;
+  animation: starTwinkle 4s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(216, 195, 151, 0.4));
+}
+
+.star:nth-child(1) { top: 12%; left: 8%;  width: 11px; height: 11px; animation-delay: 0s; }
+.star:nth-child(2) { top: 22%; right: 10%; width: 14px; height: 14px; animation-delay: 1.2s; }
+.star:nth-child(3) { top: 60%; left: 6%;  width: 10px; height: 10px; animation-delay: 2.1s; }
+.star:nth-child(4) { top: 78%; right: 8%;  width: 12px; height: 12px; animation-delay: 0.7s; }
+
+@keyframes starTwinkle {
+  0%   { transform: scale(0.3) rotate(0deg); opacity: 0; }
+  50%  { transform: scale(1.1) rotate(180deg); opacity: 0.65; }
+  100% { transform: scale(0.3) rotate(360deg); opacity: 0; }
 }

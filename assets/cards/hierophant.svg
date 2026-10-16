@@ -4,13 +4,23 @@
 	 viewBox="0 0 201.6 345.6" style="enable-background:new 0 0 201.6 345.6;" xml:space="preserve">
 <g id="Ќазвание_карт">
 </g>
-<g id="Layer_1">
+<g id="Layer_1" >
 </g>
-<g id="Layer_2">
+<g id="Layer_2" <g id="Layer_2" >>
 </g>
 <g id="Layer_3">
 </g>
 <g id="Layer_5">
+
+  /* Gently drops top Roman numeral away from top dotted line */
+  g id="Layer_5" > g > g:first-child + g { transform: translateY(6px); !important;  !important;  }
+  /* Gently lifts bottom card title away from bottom dotted line */
+  g id="Layer_5" > g > g:last-child { transform: translateY(-12px); }
+</style>
+
+   { transform: translateY(8px) scale(1.15); }
+  g > g > g:nth-child(3) { transform: translateY(-12px) scale(1.15); }
+</style>
 	<g>
 		<g>
 			<path d="M0,0v342h198.7V0H0z M198,341.1H0.8V0.9H198V341.1z"/>
