@@ -276,16 +276,18 @@ html, body {
 
 .card-title-text {
   font-family: 'Cinzel', serif;
-  font-size: 0.88rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #F4EAE1 !important;
   letter-spacing: 1.2px;
   text-shadow: 0 0 10px rgba(228, 203, 162, 0.2) !important;
+  margin-top: 12px;
+  margin-bottom: 8px;
 }
 
 .card-keywords-text {
   font-family: 'Cinzel', serif !important;
-  font-size: 0.58rem !important;
+  font-size: 0.68rem !important;
   letter-spacing: 1px !important;
   color: #E3C896 !important;
   white-space: nowrap !important;
@@ -294,7 +296,8 @@ html, body {
   display: block !important;
   width: 100% !important;
   text-align: center !important;
-  margin: 2px 0 !important;
+  margin-top: 8px !important;
+  margin-bottom: 6px !important;
 }
 
 /* STARFIELD OVERLAY */
