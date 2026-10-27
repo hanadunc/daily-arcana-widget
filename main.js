@@ -3,12 +3,13 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 function createWindow() {
 
 const win = new BrowserWindow({
-  // ... your existing width & height settings ...
+  width: 340,
+  height: 580,
   frame: false,
   transparent: true,
-  backgroundColor: '#00000000', // Forces native OS window canvas to 100% transparent
-  hasShadow: false,             // Kills native Windows square shadow box
-  thickFrame: false,
+  hasShadow: false,
+  thickFrame: false, // Prevents Windows from adding its native window border/shadow padding
+  backgroundColor: '#00000000',
   resizable: false,
   webPreferences: {
     nodeIntegration: true,
