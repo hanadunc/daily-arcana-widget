@@ -190,6 +190,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <p class="card-quote-text">${currentCard.quote}</p>
       </div>
     `;
+
+      infoBox.querySelectorAll('.card-title-text, .card-keywords-text').forEach((el) => {
+        let size = parseFloat(getComputedStyle(el).fontSize);
+        while (el.scrollWidth > el.clientWidth && size > 7) {
+          size -= 0.5;
+          el.style.setProperty('font-size', size + 'px', 'important');
+        }
+      });
     } else {
       tarotCard.classList.remove('is-flipped');
       isDrawn = false;
