@@ -1,6 +1,6 @@
 {
   "name": "daily-arcana-widget",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Desktop Tarot Card Reader Widget",
   "main": "main.js",
   "scripts": {
