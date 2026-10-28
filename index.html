@@ -16,13 +16,46 @@
   <!-- Outer Glass Wrapper for Clean Rounded Window Edges -->
   <div class="widget-window">
 
-    <!-- Starfield Background -->
-    <div class="star-field">
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-    </div>
+<!-- Celestial Constellation Layer -->
+<div class="stars-layer" style="position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1;">
+  
+  <!-- 1. Hero Large Starburst (Top Left - matching the Moon widget's prominent star) -->
+  <svg class="celestial-sparkle" style="top: 68px; left: 18px; --twinkle-duration: 4.2s; --twinkle-delay: 0.2s;" width="20" height="26" viewBox="0 0 24 32">
+    <!-- Elongated vertical rays for that ethereal celestial flare -->
+    <path d="M12 0 C12 10 16 16 24 16 C16 16 12 22 12 32 C12 22 8 16 0 16 C8 16 12 10 12 0 Z"/>
+  </svg>
+
+  <!-- 2. Tiny Accent Diamond Speck (Upper Left - tucked closer to card corner) -->
+  <svg class="celestial-sparkle" style="top: 140px; left: 34px; --twinkle-duration: 2.5s; --twinkle-delay: 1.1s; opacity: 0.6;" width="7" height="9" viewBox="0 0 24 32">
+    <path d="M12 0 C12 10 16 16 24 16 C16 16 12 22 12 32 C12 22 8 16 0 16 C8 16 12 10 12 0 Z"/>
+  </svg>
+
+  <!-- 3. Medium Starburst (Mid Right - floating slightly higher) -->
+  <svg class="celestial-sparkle" style="top: 190px; right: 20px; --twinkle-duration: 3.6s; --twinkle-delay: 1.8s;" width="14" height="18" viewBox="0 0 24 32">
+    <path d="M12 0 C12 10 16 16 24 16 C16 16 12 22 12 32 C12 22 8 16 0 16 C8 16 12 10 12 0 Z"/>
+  </svg>
+
+  <!-- 4. Subtle Micro Speck (Mid Right lower) -->
+  <svg class="celestial-sparkle" style="top: 360px; right: 32px; --twinkle-duration: 3.1s; --twinkle-delay: 0.5s; opacity: 0.5;" width="6" height="8" viewBox="0 0 24 32">
+    <path d="M12 0 C12 10 16 16 24 16 C16 16 12 22 12 32 C12 22 8 16 0 16 C8 16 12 10 12 0 Z"/>
+  </svg>
+
+  <!-- 5. Medium Flare (Mid-Lower Left) -->
+  <svg class="celestial-sparkle" style="top: 380px; left: 14px; --twinkle-duration: 4.8s; --twinkle-delay: 2.3s;" width="13" height="17" viewBox="0 0 24 32">
+    <path d="M12 0 C12 10 16 16 24 16 C16 16 12 22 12 32 C12 22 8 16 0 16 C8 16 12 10 12 0 Z"/>
+  </svg>
+
+  <!-- 6. Small Sparkle (Bottom Left near banner) -->
+  <svg class="celestial-sparkle" style="bottom: 125px; left: 28px; --twinkle-duration: 3.4s; --twinkle-delay: 1.6s;" width="10" height="13" viewBox="0 0 24 32">
+    <path d="M12 0 C12 10 16 16 24 16 C16 16 12 22 12 32 C12 22 8 16 0 16 C8 16 12 10 12 0 Z"/>
+  </svg>
+
+  <!-- 7. Tiny Diamond Accent (Bottom Right edge) -->
+  <svg class="celestial-sparkle" style="bottom: 140px; right: 18px; --twinkle-duration: 2.9s; --twinkle-delay: 0.9s; opacity: 0.65;" width="8" height="10" viewBox="0 0 24 32">
+    <path d="M12 0 C12 10 16 16 24 16 C16 16 12 22 12 32 C12 22 8 16 0 16 C8 16 12 10 12 0 Z"/>
+  </svg>
+
+</div>
 
     <!-- Header Drag Bar -->
     <header class="drag-region">

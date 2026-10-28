@@ -188,11 +188,23 @@ html, body {
   opacity: 0;
   visibility: hidden;
   transform: rotateY(180deg);
-  background-color: #120e1a !important; /* Matches .card-back exactly */
+  background-color: #120e1a !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 5px; /* <-- CHANGE THIS from 8px to 3px (or 2px) */
+  box-sizing: border-box;
+}
+
+/* Force the card SVG to strictly fill and center without subpixel drift */
+.card-front img,
+.card-front svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto;
 }
 
 .tarot-card.is-flipped .card-front {
@@ -307,34 +319,26 @@ html, body {
   margin-bottom: 2px !important;
 }
 
-/* STARFIELD OVERLAY */
-.star-field {
+/* --- CELESTIAL SPARKLE ANIMATIONS --- */
+.celestial-sparkle {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
+  fill: #e4cba2; /* Matches Arcana's tarot gold */
+  filter: drop-shadow(0 0 5px rgba(228, 203, 162, 0.7));
+  animation: celestialGlowTwinkle var(--twinkle-duration, 3.5s) ease-in-out infinite;
+  animation-delay: var(--twinkle-delay, 0s);
+  opacity: 0.85;
 }
 
-.star {
-  position: absolute;
-  background: #d8c397;
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  opacity: 0;
-  animation: starTwinkle 4s linear infinite;
-  filter: drop-shadow(0 0 4px rgba(216, 195, 151, 0.4));
-}
-
-.star:nth-child(1) { top: 12%; left: 8%;  width: 11px; height: 11px; animation-delay: 0s; }
-.star:nth-child(2) { top: 22%; right: 10%; width: 14px; height: 14px; animation-delay: 1.2s; }
-.star:nth-child(3) { top: 60%; left: 6%;  width: 10px; height: 10px; animation-delay: 2.1s; }
-.star:nth-child(4) { top: 78%; right: 8%;  width: 12px; height: 12px; animation-delay: 0.7s; }
-
-@keyframes starTwinkle {
-  0%   { transform: scale(0.3) rotate(0deg); opacity: 0; }
-  50%  { transform: scale(1.1) rotate(180deg); opacity: 0.65; }
-  100% { transform: scale(0.3) rotate(360deg); opacity: 0; }
+@keyframes celestialGlowTwinkle {
+  0%, 100% {
+    transform: scale(0.7);
+    opacity: 0.35;
+    filter: drop-shadow(0 0 2px rgba(228, 203, 162, 0.3));
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(255, 245, 230, 0.95));
+  }
 }
